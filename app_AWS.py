@@ -49,7 +49,7 @@ def initialization_database():
     database_arr = [db[0] for db in cursor.fetchall()]
 
     if "carrental" not in database_arr:
-        os.system(f"python setup_DB_AWS.py {"Smart321!!"}")
+        os.system(f"python setup_DB_AWS.py Smart321!!")
     else:
         return f"Database exists"
 
