@@ -488,7 +488,7 @@ def add_page():
             return render_template('ADMIN_SIDE/ADD.html', error = f"There is a car with the registered plate number and STNK. Please check the details again!")
 
         file_img = request.files.get('car_image')
-        filename = f"{merek.replace(" ", "_").capitalize()}.jpeg"
+        filename = f"{merek.replace(' ', '_').capitalize()}.jpeg"
         filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         file_img.save(filepath)
 
