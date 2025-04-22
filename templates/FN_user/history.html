@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../static/css/UTS_CSS.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Fungsi Toggle Dropdown
+            function toggleDropdown() {
+                let dropdown = document.getElementById("dropdownMenu");
+                dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+            }
+
+            // Tambahkan event listener ke tombol dropdown
+            document.getElementById("dropdownButton").addEventListener("click", function(event) {
+                event.stopPropagation(); // Mencegah event klik dari window.onclick
+                toggleDropdown();
+            });
+
+            // Menutup dropdown jika klik di luar dropdown
+            window.onclick = function(event) {
+                if (!event.target.closest('.dropdown')) {
+                    document.getElementById("dropdownMenu").style.display = "none";
+                }
+            };
+        });
+    </script>
+    <title>Laman Web</title>
+</head>
+<body>
+    <div class="keseluruhan">
+        <div class="judul">
+            <div class="gambar">
+                <img src="../../static/images/images.jpeg" alt="gambar" style="height: 100px;">
+            </div>
+
+            <div class="welcom">
+                <div class="calvin-rental">
+                    <p>CALVIN CAR RENTAL</p>
+                </div>
+                
+                <div class="dropdown">
+                    <input id="dropdownButton" class="dropbtn" type="image" src="../../static/images/titik tiga.png" alt="Menu" style="width: 100%;">
+                    <div class="dropdown-content" id="dropdownMenu">
+                        <a href="{{ url_for('profile_page') }}">profile</a>
+                        <a href="{{ url_for('logout_form') }}">logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            <div class="navigation">
+                <div class="main">
+                    <input type="checkbox" id="toggle" hidden>
+                    <label for="toggle" class="box tiga">
+                        <a href="{{ url_for('main_application') }}">Home</a>
+                    </label>
+                </div>
+
+                <div class="all_car">
+                    <input type="checkbox" id="toggle" hidden>
+                    <label for="toggle" class="box satu">
+                        <a href="{{ url_for('all_car_page') }}">Search All Car</a>
+                    </label>
+                </div>
+
+                <div class="approval">
+                    <input type="checkbox" id="toggle" hidden>
+                    <label for="toggle" class="box dua">
+                        <a href="{{ url_for('approval_page') }}">Approval History</a>
+                    </label>
+                </div>
+                <div class="history" style="background-color: rgb(245, 110, 61);">
+                    <input type="checkbox" id="toggle" hidden>
+                    <label for="toggle" class="box tiga">
+                        <a href="{{ url_for('History_page') }}" style="color: white;">Rent History</a>
+                    </label>
+                </div>
+            </div> 
+
+            
+            <div class="contain">
+                <div class="contentApproval" style="border:0px" :hover="background-color:white">
+                    <div class="nama_mobil" style="width: 20%; background-color: rgb(245, 110, 61); text-align: center; padding-bottom:5px; height:90%;">
+                        <p>Requested car</p>
+                    </div>
+                    <div class="tanggal" style="width: 20%; background-color: rgb(245, 110, 61); text-align: center; padding-bottom:5px; height:90%;">
+                        <p>Rentaling date</p>
+                    </div>
+                    <div class="harga" style="width: 20%;background-color: rgb(245, 110, 61); text-align: center; padding-bottom:5px; height:90%;">
+                        <p>Price/day</p>
+                    </div>
+                    <div class="status" style="width: 20%; background-color: rgb(245, 110, 61); text-align: center; padding-bottom:5px; height:90%;">
+                        <p>Status</p>
+                    </div>
+                </div>
+    
+                {% if data_arr %}
+                    {% for user_approval_data in data_arr %}
+                    <div class="approvalCon">
+                        <div class="nama_mobil">
+                            {{user_approval_data[0]}} 
+                        </div>
+                        <div class="tanggal">
+                            {{user_approval_data[3]}} - {{user_approval_data[4]}} 
+                        </div>
+                        <div class="harga" >
+                            {{user_approval_data[1]}}
+                        </div>
+                        <div class="status">
+                            {{user_approval_data[2]}}
+                        </div>
+                    </div>
+                    {% endfor %}
+                
+                {% else %}
+                    <div class="approvalCon"  style="justify-content: center; border: 1px black solid;">
+                        <h3>You have no request just yet. Rent a car now!</h3>
+                    </div>
+                {% endif %}
+            </div>
+
+
+            <div class="akhiran">
+                <div class="gambar">
+                    <img src="../../static/images/images.jpeg" alt="gambar" style="height: 100px;">
+                </div>
+                <div class="alamat">
+                    <h4>alamat</h4>
+                    <p>Menara Calvin Lt.8 RMCI Jl. Industri Blok B14 Kav1
+                        Kemayoran, Jakarta Pusat,
+                        DKI Jakarta 10610 Indonesia
+                    </p>
+                </div>
+                <div class="socialMedia">
+                    <h4>Contact us</h4>
+                    <p>Whatsapp +62888888888 atau 
+                        rental.to/ask 
+                    </p>
+                    <p>Rentalcar@example.com</p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

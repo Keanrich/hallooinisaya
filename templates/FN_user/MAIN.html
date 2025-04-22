@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../static/css/UTS_CSS.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Fungsi Toggle Dropdown
+            function toggleDropdown() {
+                let dropdown = document.getElementById("dropdownMenu");
+                dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+            }
+
+            // Tambahkan event listener ke tombol dropdown
+            document.getElementById("dropdownButton").addEventListener("click", function(event) {
+                event.stopPropagation(); // Mencegah event klik dari window.onclick
+                toggleDropdown();
+            });
+
+            // Menutup dropdown jika klik di luar dropdown
+            window.onclick = function(event) {
+                if (!event.target.closest('.dropdown')) {
+                    document.getElementById("dropdownMenu").style.display = "none";
+                }
+            };
+        });
+    </script>
+    <title>Laman Web</title>
+</head>
+<body>
+    <div class="keseluruhan">
+        <div class="judul">
+            <div class="gambar">
+                <img src="../../static/images/images.jpeg" alt="gambar" style="height: 100px;">
+            </div>
+
+            <div class="welcom">
+                <div class="calvin-rental">
+                    <p>CALVIN CAR RENTAL</p>
+                </div>
+                
+                <div class="dropdown">
+                    <input id="dropdownButton" class="dropbtn" type="image" src="../../static/images/titik tiga.png" alt="Menu" style="width: 100%;">
+                    <div class="dropdown-content" id="dropdownMenu">
+                        <a href="{{ url_for('profile_page') }}">profile</a>
+                        <a href="{{ url_for('logout_form') }}">logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="navigation">
+            <div class="main" style="background-color: rgb(245, 110, 61);">
+                <label class="box tiga">
+                    <a href="{{ url_for('main_application')}}" style="color: white;">Home</a>
+                </label>
+            </div>
+            <div class="all_car">
+                <label class="box satu">
+                    <a href="{{ url_for('all_car_page') }}">Search All Car</a>
+                </label>
+            </div>
+            <div class="approval">
+                <label class="box dua">
+                    <a href="{{ url_for('approval_page') }}">Approval History</a>
+                </label>
+            </div>
+            <div class="history">
+                <label class="box tiga">
+                    <a href="{{ url_for('History_page')}}">Rent History</a>
+                </label>
+            </div>
+        </div>
+
+        <div class="homepage">
+            <div class="kalimat">
+                <div class="judul1">
+                    <h1>Lorem Ipsum</h1>
+                </div>
+                <p>Sewa Mobil Mudah dan Nyaman untuk Segala Kebutuhan
+
+                    Kami menyediakan layanan rental mobil yang praktis dan terpercaya untuk memenuhi berbagai kebutuhan transportasi Anda. Baik untuk perjalanan bisnis, liburan keluarga, atau kebutuhan harian, kami menawarkan berbagai pilihan kendaraan yang nyaman dan terawat dengan baik. Dengan proses pemesanan yang mudah dan fleksibel, Anda dapat menikmati perjalanan tanpa ribet.
+                    
+                    Pilihan Kendaraan Lengkap dengan Harga Terjangkau
+                    
+                    Kami memiliki berbagai jenis mobil, mulai dari city car yang hemat bahan bakar, SUV yang tangguh, hingga kendaraan premium untuk pengalaman berkendara yang lebih eksklusif. Semua kendaraan kami selalu dalam kondisi prima dengan perawatan berkala, sehingga Anda dapat menikmati perjalanan dengan aman dan nyaman. Selain itu, kami menawarkan harga sewa yang kompetitif dengan berbagai paket menarik yang sesuai dengan anggaran Anda.
+                    
+                    Layanan Profesional dan Customer Support 24/7
+                    
+                    Kami memahami bahwa kenyamanan pelanggan adalah prioritas utama. Oleh karena itu, tim kami siap memberikan pelayanan terbaik dengan sopir profesional atau opsi self-drive bagi Anda yang ingin berkendara sendiri. Jika Anda memiliki pertanyaan atau butuh bantuan selama masa sewa, customer support kami tersedia 24/7 untuk memastikan pengalaman rental mobil Anda berjalan lancar.
+                    
+                    Pesan Sekarang dan Nikmati Perjalanan Tanpa Hambatan
+                    
+                    Dengan sistem pemesanan yang cepat dan mudah, Anda bisa mendapatkan mobil pilihan Anda hanya dalam beberapa langkah. Cukup pilih kendaraan, tentukan durasi sewa, dan konfirmasi pemesanan—mobil siap untuk Anda gunakan! Segera pesan sekarang dan nikmati perjalanan tanpa hambatan bersama layanan rental mobil kami yang aman, nyaman, dan terpercaya.</p>
+            </div>
+        </div>
+
+        <div class="akhiran">
+            <div class="gambar">
+                <img src="../../static/images/images.jpeg" alt="gambar" style="height: 100px;">
+            </div>
+            <div class="alamat">
+                <h4>Alamat</h4>
+                <p>Menara Calvin Lt.8 RMCI Jl. Industri Blok B14 Kav1, Kemayoran, Jakarta Pusat</p>
+            </div>
+            <div class="socialMedia">
+                <h4>Contact us</h4>
+                <p>Whatsapp +62888888888 atau rental.to/ask</p>
+                <p>Rentalcar@example.com</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

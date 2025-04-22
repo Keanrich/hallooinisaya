@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../static/css/UTS_CSS.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Fungsi Toggle Dropdown
+            function toggleDropdown() {
+                let dropdown = document.getElementById("dropdownMenu");
+                dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+            }
+
+            // Tambahkan event listener ke tombol dropdown
+            document.getElementById("dropdownButton").addEventListener("click", function(event) {
+                event.stopPropagation(); // Mencegah event klik dari window.onclick
+                toggleDropdown();
+            });
+
+            // Menutup dropdown jika klik di luar dropdown
+            window.onclick = function(event) {
+                if (!event.target.closest('.dropdown')) {
+                    document.getElementById("dropdownMenu").style.display = "none";
+                }
+            };
+        });
+    </script>
+    <title>Laman Web</title>
+</head>
+<body>
+    <div class="keseluruhan">
+        <div class="judul">
+            <div class="gambar">
+                <img src="../../static/images/images.jpeg" alt="gambar" style="height: 100px;">
+            </div>
+
+            <div class="welcom">
+                <div class="calvin-rental">
+                    <p>CALVIN CAR RENTAL</p>
+                </div>
+                
+                <div class="dropdown">
+                    <input id="dropdownButton" class="dropbtn" type="image" src="../../static/images/titik tiga.png" alt="Menu" style="width: 100%;">
+                    <div class="dropdown-content" id="dropdownMenu">
+                        <a href="{{ url_for('profile_page') }}">profile</a>
+                        <a href="{{ url_for('logout_form') }}">logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="navigation">
+            <div class="main">
+                <label for="toggle">
+                    <a href="{{ url_for('main_application_admin')}}">Home</a>
+                </label>
+            </div>
+
+
+            <div class="all_car" >
+                <label for="toggle" class="box satu">
+                    <a href="{{ url_for('all_car_page_admin')}}">Search All Car</a>
+                </label>
+            </div>
+
+            <div class="update">
+                <label for="toggle">
+                    <a href="{{ url_for('update_page')}}">Update</a>
+                </label>
+            </div>
+
+            <div class="add">
+                <label for="toggle">
+                    <a href="{{ url_for('add_page')}}">Add</a>
+                </label>
+            </div>
+
+            <div class="delete">
+                <label for="toggle">
+                    <a href="{{ url_for('delete_page')}}">Delete</a>
+                </label>
+            </div>
+
+            <div class="approval">
+                <label for="toggle">
+                    <a href="{{ url_for('approval_page_admin')}}">Approval Request</a>
+                </label>
+            </div>
+
+            <div class="history" style="background-color: rgb(245, 110, 61);">
+                <label for="toggle">
+                    <a href="{{ url_for('History_page_admin')}}">Log</a>
+                </label>
+            </div>
+        </div> 
+        <div class="contain">
+            <div class="contentApproval" style="border:0px" :hover="background-color:white">
+                <div class="nama_mobil" style="width: 20%; background-color: rgb(245, 110, 61); text-align: center; padding-bottom:5px; height:90%;">
+                    <p>number</p>
+                </div>
+                <div class="tanggal" style="width: 20%; background-color: rgb(245, 110, 61); text-align: center; padding-bottom:5px; height:90%;">
+                    <p>Status</p>
+                </div>
+                <div class="harga" style="width: 20%;background-color: rgb(245, 110, 61); text-align: center; padding-bottom:5px; height:90%;">
+                    <p>Description</p>
+                </div>
+                <div class="status" style="width: 20%; background-color: rgb(245, 110, 61); text-align: center; padding-bottom:5px; height:90%;">
+                    <p>Time</p>
+                </div>
+            </div>
+            {% if history %}
+                {% for data_arr in history %}
+                    <div class="approvalCon" style="height: 150px;">
+                        <div class="nama_mobil">
+                            {{data_arr[0]}}
+                        </div>
+                        <div class="status">
+                            {{data_arr[2]}}  
+                        </div>
+                        <div class="harga">
+                            {{data_arr[4]}}
+                        </div>
+                        <div class="tanggal">
+                            {{data_arr[3]}}
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+            <div class="approvalCon"  style="justify-content: center; border: 1px black solid;">
+                <h3>You have no log just yet!</h3>
+            </div>
+            {% endif %}
+
+        </div>
+        <div class="akhiran">
+            <div class="gambar">
+                <img src="../../static/images/images.jpeg" alt="gambar" style="height: 100px;">
+            </div>
+            <div class="alamat">
+                <h4>alamat</h4>
+                <p>Menara Calvin Lt.8 RMCI Jl. Industri Blok B14 Kav1
+                    Kemayoran, Jakarta Pusat,
+                    DKI Jakarta 10610 Indonesia
+                </p>
+            </div>
+            <div class="socialMedia">
+                <h4>Contact us</h4>
+                <p>Whatsapp +62888888888 atau 
+                    rental.to/ask 
+                </p>
+                <p>Rentalcar@example.com</p>
+            </div>
+        </div>
+    </div>
+    </body>
+</html>

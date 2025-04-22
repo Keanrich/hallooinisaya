@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            width:100%;
+            border-collapse: collapse;
+        }
+
+        table,td,tr{
+            border: 1px black solid;
+        }
+
+        th{
+            background-color: aliceblue;
+        }
+
+        td{
+            padding: 10px
+        }
+    </style>
+</head>
+<body>
+    <p>halo {{ user[0] }} selamat datang di website saya</p>
+    <ul>
+        <!-- <li> {{ students[0].id}} | {{students[0].name}} </li> -->
+        {% for std in students %}
+
+            {% if std.name != "brian" %}
+            <li>{{ std.id }} | {{ std.name }}</li>
+            {% endif %}
+
+        {% endfor %}
+    </ul>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+        </tr>
+
+            {% for std in students %}
+            <tr>
+                <td>{{ std.id }} </td> 
+                <td>{{ std.name }}</td>
+            </tr>
+            {% endfor %}
+    </table>
+</body>
+</html>

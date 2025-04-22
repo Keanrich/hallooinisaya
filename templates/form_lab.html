@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple CRUD APPlication AJAX</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelector("#add").onclick = function () {
+                let form = document.querySelector("#perubahan_add")
+                let wadah = document.createElement("div")
+
+                let nama = document.createElement("input")
+                nama.type = "text";
+                nama.name = "nama"
+                nama.placeholder = "Nama";
+                nama.required = true;
+
+                let NIM = document.createElement("input")
+                NIM.type = "text";
+                NIM.name = "nim"
+                NIM.placeholder = "NIM";
+                NIM.required = true;
+
+                let Dbirth = document.createElement("input")
+                Dbirth.type = "date";
+                Dbirth.name = "dob"
+                Dbirth.placeholder = "Tanggal Lahir";
+                Dbirth.required = true;
+
+                let oke = document.createElement("input")
+                oke.innerText = "OK";
+                oke.type = "submit";
+
+
+                let no = document.createElement("button")
+                no.innerText = "NO"
+                no.type = "button"
+                no.onclick = function() {
+                    form.innerHTML = ""
+                }
+                
+                wadah.append(NIM, nama, Dbirth, oke)
+                form.appendChild(wadah)
+            }
+
+            document.querySelectorAll(".open").forEach(button => {
+                button.onclick = function () {
+                    let form = document.querySelector("#perubahan_update")
+                    form.innerHTML = "" // bersihin form
+
+                    let wadah = document.createElement("div")
+
+                    // Ambil data dari tombol
+                    let nim = this.dataset.nim
+                    let namaVal = this.dataset.nama
+                    let dob = this.dataset.dob
+
+                    let NIM = document.createElement("input")
+                    NIM.type = "text";
+                    NIM.name = "nim"
+                    NIM.value = nim;
+ 
+
+                    let nama = document.createElement("input")
+                    nama.type = "text";
+                    nama.name = "nama"
+                    nama.value = namaVal;
+                    nama.required = true;
+
+
+                    let Dbirth = document.createElement("input")
+                    Dbirth.type = "date";
+                    Dbirth.name = "dob"
+                    Dbirth.value = dob;
+                    Dbirth.required = true;
+
+                    let oke = document.createElement("input")
+                    oke.type = "submit";
+                    oke.value = "OK";
+
+
+                    let no = document.createElement("button")
+                    no.innerText = "NO"
+                    no.type = "button"
+                    no.onclick = function () {
+                        form.innerHTML = ""
+                    }
+
+
+
+                    wadah.append(NIM, nama, Dbirth, oke, no)
+                    form.appendChild(wadah)
+                }
+            })
+
+        })
+
+    </script>
+    <style>
+        table, th, td{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        table{
+            width: 100%;
+            margin-top: 10px;
+        }
+        form {
+            margin-top: 10px;
+        }
+        input {
+            display: block;
+            margin-bottom: 5px;
+            padding: 5px;
+            width: 200px;
+        }
+        button {
+            margin-right: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .judul{
+            background-color: deepskyblue;
+            text-align: center;
+            padding:10px;
+            margin:5px
+        }
+
+        .actions{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+    </style>
+</head>
+<body>
+    <div class="judul">
+    <h1>List of students</h1>
+    </div>
+
+    <div class="actions">
+        <div class="add_student">
+            <button id="add">+ students</button>
+        </div>
+        <div class="Load_students">
+            <form action="/load" method="GET">
+                <button type="submit">Load</button>
+            </form>
+        </div>
+    </div>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>NIM</th>
+            <th>Date birth</th>
+            <th>open</th>
+            <th>delete</th>
+        </tr>
+        {% for students in data %}
+        <tr>
+            <td>{{ students[1] }}</td>
+            <td>{{ students[2] }}</td>
+            <td>{{ students[3] }}</td>
+            <td>
+                <button type="button" class="open"
+                    data-nim="{{ students[2] }}"
+                    data-nama="{{ students[1] }}"
+                    data-dob="{{ students[3] }}"
+                >open</button>
+
+                <td>
+                    <form action="/delete" method="POST" style="display: inline;">
+                        <input type="hidden" name="nim" value="{{ students[2] }}">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>                
+            </td> 
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <div class="form-pengisian">
+        <form id="perubahan_add" method="post" action="/">
+    
+        </form>
+
+        <form id="perubahan_update" method="post" action="/load">
+    
+        </form>
+    </div>
+</body>
+</html>

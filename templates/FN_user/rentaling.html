@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../static/css/UTS_CSS.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Fungsi Toggle Dropdown
+            function toggleDropdown() {
+                let dropdown = document.getElementById("dropdownMenu");
+                dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+            }
+
+            // Tambahkan event listener ke tombol dropdown
+            document.getElementById("dropdownButton").addEventListener("click", function(event) {
+                event.stopPropagation(); // Mencegah event klik dari window.onclick
+                toggleDropdown();
+            });
+
+            // Menutup dropdown jika klik di luar dropdown
+            window.onclick = function(event) {
+                if (!event.target.closest('.dropdown')) {
+                    document.getElementById("dropdownMenu").style.display = "none";
+                }
+            };
+        });
+    </script>
+    <title>Laman Web</title>
+</head>
+<body>
+    <div class="keseluruhan">
+        <div class="judul">
+            <div class="gambar">
+                <img src="../../static/images/images.jpeg" alt="gambar" style="height: 100px;">
+            </div>
+
+            <div class="welcom">
+                <div class="calvin-rental">
+                    <p>CALVIN CAR RENTAL</p>
+                </div>
+                
+                <div class="dropdown">
+                    <input id="dropdownButton" class="dropbtn" type="image" src="../../static/images/titik tiga.png" alt="Menu" style="width: 100%;">
+                    <div class="dropdown-content" id="dropdownMenu">
+                        <a href="{{ url_for('profile_page') }}">profile</a>
+                        <a href="{{ url_for('logout_form') }}">logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            <div class="navigation">
+                <div class="main">
+                    <input type="checkbox" id="toggle" hidden>
+                    <label for="toggle" class="box tiga">
+                        <a href="{{ url_for('main_application') }}">Home</a>
+                    </label>
+                </div>
+
+                <div class="all_car">
+                    <input type="checkbox" id="toggle" hidden>
+                    <label for="toggle" class="box satu">
+                        <a href="{{ url_for('all_car_page') }}">Search All Car</a>
+                    </label>
+                </div>
+
+                <div class="approval">
+                    <input type="checkbox" id="toggle" hidden>
+                    <label for="toggle" class="box dua">
+                        <a href="{{ url_for('approval_page') }}">Approval History</a>
+                    </label>
+                </div>
+                <div class="history">
+                    <input type="checkbox" id="toggle" hidden>
+                    <label for="toggle" class="box tiga">
+                        <a href="{{ url_for('History_page') }}">Rent History</a>
+                    </label>
+                </div>
+
+
+                <div class="main" style="background-color: rgb(245, 110, 61);">
+                    <input type="checkbox" id="toggle" hidden>
+                    <label for="toggle" class="box empat">
+                        <a href="{{url_for('rentaling_page', car_id=car_data[0])}}" style="color: white;">Rentaling</a>
+                    </label>
+                </div>
+            </div> 
+
+            <div class="homepage1">
+                    <div class="judul-rentaling">
+                        <h1>{{car_data[2]}} rental</h1>
+                    </div>
+                    <div class="foto-mobil">
+                        <div class="foto1">
+                            <img src="{{ url_for('static', filename=car_data[-1]) }}" alt="{{car_data[2]}} picture">
+                        </div>
+                    </div>
+
+                    <div class="data_mobil">
+                        <div class="data-mobil1">
+                            <p>
+                                {{car_data[-2]}}
+                            </p>
+                            <div class="harga" style="font-family: fantasy; font-size: 24px;"> Rp{{car_data[5]}}/day
+                            </div>
+                        </div>
+                        <div class="data-mobil1">
+                            <form method="POST">
+                                <h4>Input your data to Rental</h4>
+                                <p>Masukan Nama Anda:</p>
+                                <input type="text" name="name" placeholder="Masukkan nama asli dari SIM Anda" required>
+
+                                <p>Masukan Nomor SIM Anda:</p>
+                                <input type="text" name="SIM_number" placeholder="Masukkan nomor SIM Anda" required>
+
+                                <p>Masukan Tanggal Mulai Peminjaman:</p>
+                                <input type="date" name="start_date" placeholder="YYYY-MM-DD" required>
+
+                                <p>Masukan Tanggal Akhir Peminjaman:</p>
+                                <input type="date" name="end_date" placeholder="YYYY-MM-DD" required>
+
+                                <hr>
+
+                                <!-- show error -->
+                                {% if error %}
+                                    <p style="color: red;">{{error}}</p>
+                                {% endif %}
+
+                                <input type="submit" name="Submit" style="background-color: chartreuse;"></input>
+                            </form>
+                        </div>
+                    </div>
+
+            </div>
+
+
+            <div class="akhiran">
+                <div class="gambar">
+                    <img src="../../static/images/images.jpeg" alt="gambar" style="height: 100px;">
+                </div>
+                <div class="alamat">
+                    <h4>alamat</h4>
+                    <p>Menara Calvin Lt.8 RMCI Jl. Industri Blok B14 Kav1
+                        Kemayoran, Jakarta Pusat,
+                        DKI Jakarta 10610 Indonesia
+                    </p>
+                </div>
+                <div class="socialMedia">
+                    <h4>Contact us</h4>
+                    <p>Whatsapp +62888888888 atau 
+                        rental.to/ask 
+                    </p>
+                    <p>Rentalcar@example.com</p>
+                </div>
+
+            </div>
+
+        </div>
+    </body>
+</html>

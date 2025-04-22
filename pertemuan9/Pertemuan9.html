@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <style>
+        .special{
+            border: 1px solid blue;
+        }
+
+        .urgent{
+            border: 1px red solid;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Intro to Vue JS</h1>
+
+    <div id="app">
+        <p v-if="showMessage">Message: {{ Message }}</p>
+
+        <button v-on:click="changeMessage">Change Message</button>
+        <br>
+        <button @click="hideMessage">Hide Message</button>
+        <br>
+        <button @click="restart">restart</button>
+
+        <h1> {{ Message }}</h1>
+
+        <hr>
+        <ul>
+            <li v-for="i in notes" :key="i.code" :class="{'urgent': i.isUrgent}"> 
+                <!-- membuat binding sehingga lebih optimal ketika penambahan data -->
+                {{ i.code }} : {{i.remark}}
+            </li>
+        </ul>
+
+        <input type="text" v-model="Message">
+
+        <h2 v-bind:class="{'special' : isSpecial }">{{ bigMessage }}</h2>
+        <!-- big message di dalam js di assign sebagai properties dari computed
+        jika dia di assign sebagai function maka dia perlu dipindhkan ke methods dan
+        bigmessage diganti jadi bigmessage() -->
+        <h2 v-bind:class="{'special' : isSpecial }">{{ alwaysThree() + 2 }}</h2>
+        
+        <button @click="makeBigMessageSpecial">ubah jadi biru</button>
+        <h3>banyaknya data: {{notesCount}}</h3>
+
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

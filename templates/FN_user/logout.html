@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Site</title>
+    <style>
+        .container{
+            height:800px;
+            background-image: url("../../static/images/images\ \(1\).jpeg");
+            background-size: cover; /* Menyesuaikan layar tanpa blur */
+            background-position: center;
+            background-repeat: no-repeat;
+            display:flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .form{
+            background-color: white;
+            width:60%;
+            height:40%;
+            /* padding:30px; */
+            margin:200px;
+        }
+
+        .judul{
+            background-color: rgb(240, 107, 58);
+            padding:10px;
+            margin:10px;
+            color:white;
+        }
+        .isi-form{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding-top: 5%;
+        }
+    </style>
+</head>
+<body>
+    <!-- register merupakan fungsi python yang dipakai untuk mngoperasikan first name dan last name -->
+    <div class="container">
+        <div class="form">
+            <div class="judul">
+                <h1>Are You Sure Want to Logout from application?
+            </div>
+
+            <div class="isi-form">
+                <form action = "/confirm_logout" method="POST" > 
+                    <input type="submit" value = 'logout'>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

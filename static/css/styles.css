@@ -1,0 +1,223 @@
+.gambar{
+    background-color:rgb(54, 156, 207);
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: normal;
+    color:white;
+    height:90px
+}
+
+.kalimat{
+    font-size: 10px;
+}
+.welcoming{
+    font-size: 16px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    width:300px;
+    text-align: center;
+}
+
+.pilihan{
+    background-color: white;
+    padding: 10px;
+    height: 25%;
+    display: block;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+.pilihan-satu{
+    /* border: 1px black solid; */
+    padding: 5px;
+    height: 140px;
+    display: flex;
+    justify-content: center;
+}
+
+.pilihan-dua{
+    /* border: 1px black solid; */
+    padding: 5px;
+    height: 140px;
+    display: flex;
+    justify-content: center;
+}
+
+.item{
+    background-color:white;
+    border: 1px black solid;
+    margin:10px;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+.item:hover{
+    background-color:cornsilk;
+    border-radius: 30px; /* Opsional untuk membuat sudut melengkung */
+    box-shadow: 10px 4px 50px rgba(0, 0, 0, 0.1); /* X, Y, blur, spread, dan warna */
+}
+
+.main{
+    border: 1px black solid;
+    margin-left: 50px;
+    margin-right: 50px;
+    display: block;
+    /* justify-content: space-around; */
+}
+
+.bulatan{
+    background-color:rgb(54, 156, 207);
+    height: 120px;
+    padding: 10px;
+    border: 1px black solid;
+    display: flex;
+    justify-content: space-around;
+}
+.bulat{
+    border: 1px black solid;
+    border-radius: 100%;
+    height: 100px;
+    width:100px;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+}
+
+.bulat:hover{
+    background-color:cornsilk;
+}
+
+.bacaan{
+    border: 1px black solid;
+    display: flex;
+    justify-content: center; 
+    
+}
+.bacaan-satu, .bacaan-dua{
+    border: 1px black solid;
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+    width:530px;
+}
+
+.bacaan-satu:hover, .bacaan-dua:hover{
+    background-color: cornsilk;
+    border-radius: 30px; /* Opsional untuk membuat sudut melengkung */
+    box-shadow: 10px 4px 50px rgba(0, 0, 0, 0.1); /* X, Y, blur, spread, dan warna */
+}
+
+
+.kotakan{
+    height: 120px;
+    padding: 10px;
+    border: 1px black solid;
+    display: flex;
+    justify-content: space-around;
+    background-color:rgb(54, 156, 207);
+}
+.kotak{
+    border: 1px black solid;
+    margin: 10px;
+    height: 100px;
+    width:100px;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+}
+
+.kotak:hover{
+    background-color:cornsilk;
+    border-radius: 30px; /* Opsional untuk membuat sudut melengkung */
+    box-shadow: 10px 4px 50px rgba(0, 0, 0, 0.1); /* X, Y, blur, spread, dan warna */
+}
+
+.akhiran{
+    display: flex;
+    justify-content: space-between;
+    padding:10px;
+}
+
+.kirian{
+    width:300px;
+    display: flex;
+}
+
+.kananan{
+    width:300px;
+    display:flex;
+    justify-content: flex-end;
+}
+
+@media (max-width: 768px) { 
+    .gambar{
+        height:150px;
+    }
+
+    .pilihan {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .pilihan-satu, .pilihan-dua {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+    }
+
+    .item {
+        width: 300px;
+        max-width: 300px;
+        height: 100px;
+    }
+
+    .bacaan{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .bacaan-satu, .bacaan-dua{
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        width:60%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) { 
+    .pilihan {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 3 kolom */
+        grid-template-rows: repeat(4, auto); /* 4 baris */
+        gap: 10px; /* Jarak antar kotak */
+        justify-items: center;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .pilihan-satu, .pilihan-dua {
+        display: contents; /* Menghilangkan efek flexbox agar semua item langsung masuk ke grid */
+    }
+
+    .item {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+

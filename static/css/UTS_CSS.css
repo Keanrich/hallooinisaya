@@ -1,0 +1,560 @@
+/* main */
+.judul{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: normal;
+    height: 100px;
+    background-color: rgb(240, 107, 58);
+    color: white;
+    padding: 10px;
+    /* width:100% */
+}
+
+.welcom{
+    color: white;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    /* border: 1px white solid; */
+    padding-left: 50px;
+    /* margin: 10px; */
+    width: 86%;
+    text-align:justify;
+    display:flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.calvin-rental{
+    font-size: 20px;
+    width:80%;
+    /* border:1px solid black; */
+}
+
+.dropdown {
+    display: flex;
+    position: relative;
+    align-items: center;
+    width:5%;
+    padding:10px;
+}
+
+.dropbtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.dropbtn img {
+    width: 30px;
+    height: 30px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: white;
+    min-width: 150px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    font-size: 12px;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+.dropdown-content a:hover {
+    background-color: lightgray;
+}
+
+.gambar{
+    /* border:1px solid black; */
+    height: 100px;
+}
+
+.navigation{
+    display:flex;
+    flex-wrap:wrap;
+    /* padding: 10px; */
+}
+
+.main, .all_car, .approval, .history, .update, .add, .delete{
+    margin: 10px;
+    border:1px black solid;
+    padding: 10px;
+}
+
+a{
+    text-decoration: none;
+}
+a:hover{
+    color:black
+}
+
+a:visited{
+    color:black;
+}
+
+/* homapage */
+.judul1{
+    background-color: rgb(240, 107, 58);
+    color: white;
+    padding: 10px
+}
+
+.homepage{
+    width: 60%;
+    height: 1000px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    border: 1px black solid;
+    padding: 10px;
+    text-align: justify;
+    background-color: white;
+    color:black;
+    margin-left:20%;
+    border-radius: 15px;
+}
+
+.main:hover, .all_car:hover, .approval:hover, .history:hover, .update:hover, .add:hover, .delete:hover{
+    background-color: rgb(121, 203, 245);
+    border-radius: 80px;
+}
+
+
+/* all car */
+.template{
+    display: flex;
+    flex-wrap:wrap;
+}
+
+.car{
+    width:490px;
+    margin: 5px;
+    height:225px;
+    border:1px black solid;
+    /* padding: 30px 0px 0px 30px; */
+    margin-bottom:10px;
+    background-color: rgb(246, 160, 129);
+    color: white;
+    display: flex;
+    border-radius: 10px;
+}
+
+.judul_mobil{
+    width: 300px;
+    height: 190px;
+    background-color: white;
+    color: black;
+    margin: 10px;
+    padding:5px;
+    border:1px solid black;
+}
+
+.judul_mobil img {
+    width: 100%;
+    height: 100%;
+}
+
+.isi{
+    padding-top: 10px;
+    height: 190px;
+    /* border:1px solid black; */
+}
+
+.pesan_mobil{
+    width:50%;
+    margin-left: 25%;
+    background-color: white;
+    text-align: center;
+    border-radius: 50px;
+    margin-top: 25%;
+}
+
+.pesan_mobil:hover{
+    background-color: rgb(100, 236, 177);
+}
+
+.car:hover{
+    background-color: rgb(121, 203, 245);
+}
+
+
+/* approval  and rental history*/
+.approvalCon{
+    height: 50px;
+    width:60%;
+    margin-left: 20%;
+    margin-bottom: 10px;
+    border:1px black solid;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-between;
+}
+
+.contentApproval{
+    height: 50px;
+    width:60%;
+    margin-left: 20%;
+    margin-bottom: 10px;
+    border:1px black solid;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-between;
+}
+
+.nama_mobil, .tanggal, .harga, .status {
+    padding: 3px 5px 3px 5px;
+    height:44px;
+    width: 20%;
+    text-align: center;
+}
+
+
+.return {
+    margin-left: auto;
+    align-items: center;
+}
+
+.actions {
+    display: inline;
+}
+
+.accept-btn {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.reject-btn {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.accept-btn:hover {
+    background-color: darkgreen;
+}
+
+.reject-btn:hover {
+    background-color: darkred;
+}
+
+.approvalCon:hover{
+    background-color: rgb(121, 203, 245);
+    /* border-radius: 80px; */
+}
+
+.informasi:hover{
+    color:white;
+}
+
+.akhiran{
+    border: 1px black solid;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgb(240, 107, 58);
+    color: white;
+    /* width:100%; */
+}
+
+/* rentaling */
+.judul-rentaling{
+    background-color: rgb(240, 107, 58);
+    color:white;
+    padding:10px;
+}
+
+.data_mobil{
+    display: inline;
+    height: 60%;
+}
+
+.data-mobil1{
+    background-color: rgb(240, 107, 58);
+    padding:10px;
+    margin:10px;
+    color:white;
+}
+
+.foto-mobil{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.foto1{
+    border:1px black solid;
+    margin:10px;
+    width: 150px;
+    height:150px;
+}
+
+.foto1 img {
+    width: 150px;
+    height: 150px;
+}
+
+.homepage1{
+    margin-bottom: 50px;
+    border: 1px black solid;
+    padding: 10px;
+    text-align: justify;
+    background-color: white;
+    color:black;
+    width:60%;
+    margin-left:20%;
+    border-radius: 15px;
+}
+
+.homepageProfile{
+    margin-bottom: 50px;
+    border: 1px black solid;
+    padding: 10px;
+    text-align: justify;
+    background-color: white;
+    color:black;
+    width:50%;
+    margin-left:25%;
+}
+
+.input-bio{
+    width: 90%; 
+    height: 200px;
+}
+
+@media (max-width: 768px) { 
+    .homepage{
+        margin: 1px;
+        margin-bottom: 10px;
+        width: 94%;
+    }
+
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+        width:8%;
+        padding:7%;
+    }
+
+    .akhiran{
+        display: block;
+        width:94%
+    }
+    .gambar{
+        height:80px;
+        width:25%;
+        /* border:1px black solid; */
+    }
+
+    .calvin-rental{
+        font-size: 14px;
+        width:70%;
+        /* border:1px solid black; */
+    }
+
+    .judul{
+        display: flex;
+        background-color: rgb(240, 107, 58);
+        flex-wrap: wrap;
+        width:95%
+    }
+
+    .welcom{
+        /* border: 1px white solid; */
+        width:60%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        /* font-size: 14px; */
+        padding-top:20px;
+        margin-left: 5%;
+        padding-left: 5%;
+    }
+
+    .navigation{
+        display:flex;
+        flex-wrap:wrap;
+        padding-top: 10px;
+    }
+
+    .template{
+        display: block;
+        /* width:85%; */
+        /* padding-bottom:50px; */
+        
+    }
+
+    .car{
+        width:98%;
+        height:200px;
+        border:1px black solid;
+        /* padding: 30px 0px 0px 30px; */
+        margin-bottom:10px;
+        background-color: rgb(246, 160, 129);
+        color: white;
+        display: flex;
+    }
+
+    .judul_mobil{
+        width: 300px;
+        height: 100px;
+        background-color: white;
+        color: black;
+        margin: 10px;
+        padding:7px;
+        padding-top: 40px;
+    }
+
+    .isi{
+        padding-top: 10px;;
+    }
+
+    .homepage1{
+        border: 1px black solid;
+        padding: 10px;
+        text-align: justify;
+        background-color: white;
+        color:black;
+        width:95%;
+        margin:0;
+        margin-bottom: 5%;
+    }
+
+    .homepageProfile{
+        margin-bottom: 50px;
+        border: 1px black solid;
+        padding: 10px;
+        text-align: justify;
+        background-color: white;
+        color:black;
+        width:95%;
+        margin:0;
+        margin-bottom: 5%;
+    }
+    .approvalCon{
+        width:100%;
+        height: 150px;
+        margin-left:0px;
+    }
+
+    .contentApproval{
+        width:100%;
+        margin-left:0px;
+    }
+    .nama_mobil, .tanggal, .harga, .status {
+        padding: 3px 5px 0px 5px;
+        height:99%;
+        width: 20%;
+        text-align: center;
+    }
+
+    .actions{
+        width:20%
+    }
+    .accept-btn {
+        width:20%
+    }
+    
+    .reject-btn {
+        width:20%
+    }
+
+    .input-bio{
+        height: 150px;
+        width:95%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .welcom {
+        width: 70%; 
+        padding-left: 20px; /* Sedikit lebih lebar dari HP */
+        display: flex;
+        flex-wrap: nowrap; /* Hindari turun ke bawah */
+        justify-content: space-between;
+        align-items: center;
+        /* border: 1px black solid; */
+    }
+
+    .calvin-rental {
+        font-size: 18px; /* Lebih besar dari HP, lebih kecil dari desktop */
+        width: 70%; /* Supaya dropdown punya ruang */
+    }
+
+    .dropdown {
+        display: flex;
+        position: relative;
+        align-items: center;
+        width: 5%;
+        padding: 10px; /* Tambahkan sedikit padding */
+    }
+}
+
+
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color:white
+}
+
+
+.container {
+    max-width: 500px;
+    margin: auto;
+    background: rgb(245, 110, 61);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+.container h2 {
+    color: white;
+}
+
+#user-input-label {
+    display: block;
+    margin-top: 10px;
+    color: white;
+}
+
+input, select {
+    width: 96%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #218838;
+}
+

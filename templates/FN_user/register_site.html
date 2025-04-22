@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Site</title>
+    <style>
+        .container{
+            height:1000px;
+            background-image: url("../../static/images/foto\ mobil.jpeg");
+            background-size: cover; /* Menyesuaikan layar tanpa blur */
+            background-position: center;
+            background-repeat: no-repeat;
+            display:flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .form{
+            background-color: white;
+            width:60%;
+            height:40%;
+            /* padding:30px; */
+            margin-top:15%;
+            /* margin-bottom:50%; */
+        }
+
+        .judul{
+            background-color: rgb(240, 107, 58);
+            padding:10px;
+            margin:10px;
+            color:white;
+        }
+        .isi-form{
+            padding:10px;
+        }
+
+        @media (max-width: 768px) {
+            .form{
+            background-color: white;
+            width:60%;
+            height:40%;
+            /* padding:30px; */
+            margin-top:50%;
+            margin-bottom:50%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- register merupakan fungsi python yang dipakai untuk mngoperasikan first name dan last name -->
+    <div class="container">
+        <div class="form">
+            <div class="judul">
+                <h1>Regist here
+            </div>
+
+            <div class="isi-form">
+                <form action = "" method = "POST" > 
+                    <input type="text" name = 'name' placeholder="username" required>
+                    <br>
+                    <br>
+                    <input type="text" name = 'password' placeholder="Password" required>
+                    <br><br>
+                    <input type="text" name="email" placeholder="Your email" required>
+                    <br><br>
+                    <input type="date" name="dob" placeholder="Your date of birth" required>
+                    <br><br>
+                    <input type="text" name="sim_number" placeholder="Your sim card (if available)">
+                    <br><br>
+
+                    <!-- show error if exists -->
+                    {% if error %}
+                        <p style="color: red;">{{error}}</p>
+                    {% endif %}
+                    
+                    <hr>
+                    <input type="submit" value = 'register'>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

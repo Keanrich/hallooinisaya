@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Add New Vehicle</title>
+        <link rel="stylesheet" href="../../static/css/UTS_CSS.css">
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                // Fungsi Toggle Dropdown
+                function toggleDropdown() {
+                    let dropdown = document.getElementById("dropdownMenu");
+                    dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+                }
+    
+                // Tambahkan event listener ke tombol dropdown
+                document.getElementById("dropdownButton").addEventListener("click", function(event) {
+                    event.stopPropagation(); // Mencegah event klik dari window.onclick
+                    toggleDropdown();
+                });
+    
+                // Menutup dropdown jika klik di luar dropdown
+                window.onclick = function(event) {
+                    if (!event.target.closest('.dropdown')) {
+                        document.getElementById("dropdownMenu").style.display = "none";
+                    }
+                };
+            });
+        </script>
+    </head>
+
+    <body>
+        <div class="judul">
+            <div class="gambar">
+                <img src="../../static/images/images.jpeg" alt="gambar" style="height: 100px;">
+            </div>
+
+            <div class="welcom">
+                <div class="calvin-rental">
+                    <p>CALVIN CAR RENTAL</p>
+                </div>
+                
+                <div class="dropdown">
+                    <input id="dropdownButton" class="dropbtn" type="image" src="../../static/images/titik tiga.png" alt="Menu" style="width: 100%;">
+                    <div class="dropdown-content" id="dropdownMenu">
+                        <a href="{{url_for('profile_page')}}">profile</a>
+                        <a href="{{url_for('logout_form')}}">logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="navigation">
+            <div class="main">
+                <label for="toggle">
+                    <a href="{{ url_for('main_application_admin')}}">Home</a>
+                </label>
+            </div>
+
+
+            <div class="all_car"  >
+                <label for="toggle" class="box satu">
+                    <a href="{{ url_for('all_car_page_admin')}}">Search All Car</a>
+                </label>
+            </div>
+
+            <div class="update" style="background-color: rgb(245, 110, 61);">
+                <label for="toggle">
+                    <a href="{{ url_for('update_page')}}">Update</a>
+                </label>
+            </div>
+
+            <div class="add">
+                <label for="toggle">
+                    <a href="{{ url_for('add_page')}}">Add</a>
+                </label>
+            </div>
+
+            <div class="delete">
+                <label for="toggle">
+                    <a href="{{ url_for('delete_page')}}">Delete</a>
+                </label>
+            </div>
+
+            <div class="approval">
+                <label for="toggle">
+                    <a href="{{ url_for('approval_page_admin')}}">Approval Request</a>
+                </label>
+            </div>
+
+            <div class="history">
+                <label for="toggle">
+                    <a href="{{ url_for('History_page_admin')}}">Log</a>
+                </label>
+            </div>
+        </div>
+
+        <div class="container">
+            <h2>Update Vehicle</h2>
+            <form id="updateVehicleForm", method="POST">
+                <label for="update_vehicle" id="user-input-label">Select Vehicle:</label>
+                <select id="update_vehicle" name="update_vehicle" required>
+                    {% for car_merek in data %}
+                        <option value="{{car_merek[0]}}">{{car_merek[0]}}</option>
+                    {% endfor %}
+                </select>
+
+                <label for="update_merek" id="user-input-label">New Merek:</label>
+                <input type="text" id="update_merek" name="update_merek" placeholder="Leave empty to retain old values">
+    
+                <label for="update_jenis" id="user-input-label">New Jenis:</label>
+                <input type="text" id="update_jenis" name="update_jenis" placeholder="Leave empty to retain old values">
+    
+                <label for="update_harga" id="user-input-label">New Harga:</label>
+                <input type="text" id="update_harga" name="update_harga" placeholder="Leave empty to retain old values">
+    
+                <label for="update_stnk" id="user-input-label">New STNK:</label>
+                <input type="text" id="update_stnk" name="update_stnk" placeholder="Leave empty to retain old values">
+
+                <label for="update_desc" id="user-input-label">New Description:</label>
+                <input type="text" id="update_desc" name="update_desc" placeholder="Leave empty to retain old values">
+    
+                <button type="submit">Update Vehicle</button>
+            </form>
+        </div>
+        <br>
+        <div class="akhiran">
+            <div class="gambar">
+                <img src="../../static/images/images.jpeg" alt="gambar" style="height: 100px;">
+            </div>
+            <div class="alamat">
+                <h4>Alamat</h4>
+                <p>Menara Calvin Lt.8 RMCI Jl. Industri Blok B14 Kav1, Kemayoran, Jakarta Pusat</p>
+            </div>
+            <div class="socialMedia">
+                <h4>Contact us</h4>
+                <p>Whatsapp +62888888888 atau rental.to/ask</p>
+                <p>Rentalcar@example.com</p>
+            </div>
+        </div>
+    </body>
+</html>
